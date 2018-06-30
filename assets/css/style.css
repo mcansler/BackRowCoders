@@ -14,14 +14,22 @@ body {
         transform: translate(-50%, -50%);
 }
 
+/* Will contain map */
+.map {
+    /* May conflict with logic code to toggle on and off display */
+    display: none;
+    /* Sit on top */
+    z-index: 4; 
+}
+
 /* Will contain character and Pokemon and user will capture   */
 .battleScreen {
     /* Hidden by default */
-    display: none;
+    /* display: none; */
     /* Stay in place */
-    position: fixed;
+    /* position: fixed;
     /* Sit on top */
-    z-index: 1; 
+    z-index: 3; 
     /* Location of the box */
     padding-top: 100px;
     left: 0;
@@ -31,14 +39,20 @@ body {
     /* Full height */
     height: 100%;
     /* Enable scroll if needed */
-    overflow: auto; 
+    overflow: auto;
     background-image: url(https://orig00.deviantart.net/4319/f/2011/190/9/a/free_pokemon_battle_template_by_peregrinestar-d3lijek.png);
 }
 
-/* Will display victory gif */
+/* Will contain victory gif */
 .victoryScreen {
+    display: none;
+    /* Sit on top */
+    z-index: 2; 
 }
 
-/* Will display defeat gif */
+/* Will contain defeat gif */
 .defeatScreen {
+    display: none;
+    /* Sit on top */
+    z-index: 1; 
 }
