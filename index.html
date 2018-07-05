@@ -1,72 +1,57 @@
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Pokemon No</title>
-    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+   
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
 <body>
-<!-- This one will be for the top screen -->
-<div class='gameConsole'>
-
-        <!-- <img src='assets/images/DS.jpg' style="height:780px; width:780px;"> -->
-        <div class="topScreen"></div>
-        <div >
-    
-              
-      <div class="container">
-        <!-- Jumbotron -->
-        <div class="jumbotron">
-          <h1 class="text-center">Pokemon Tracker</h1>
-        </div>
-        
-        <div class="row">
-          
-          <div class="col-md-12">
-            
-            <!-- gamer stats-->
-            <div class="card card-primary">
-              
-              <div class="card-body">
-                <table class="table table-hover" id='playerStat'>
-                  <thead>
-                    <tr>
-                      <!-- <th># of Games</th> -->
-                      <th>Character</th>
-                      <th>Pokemon Name</th>
-                      <th>Status</th>
-                      <th># of Times Caught</th>  
-                    </tr>
-                  </thead>
-                  <tbody>
-                  </tbody>
-                </table>
-              </div>
+<!-- background -->
+<div class="container">
+    <!-- Jumbotron -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class='gameConsole'>
+                <img class="screen" src='assets/images/DS.png'>
             </div>
-          </div>
-        </div>  
-      </div>
-      
-    
+            <div class="bottomScreen">
+                    <br>
+                    <h3>Pokemon Tracker</h3>
+                
+                <div class="card card-primary">
+                        <div class="card-body">
+                            <table class="table table-hover" id='playerStat'>
+                            <thead>
+                                <tr>
+                                <!-- <th># of Games</th> -->
+                                <th>Character</th>
+                                <th>Pokemon Name</th>
+                                <th>Status</th>
+                                <th># of Times Caught</th>  
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            </table>
+                        </div>
+                </div>
+            
+            </div>
         </div>
-    <img src='assets/images/DS.png' style="height:780px; width:780px;">
-    <div class="topScreen">
-        <div class="map"></div>
-        <div class="battleScreen"></div>
-        <div class="victoryScreen"></div>
-        <div class="defeatScreen"></div>
     </div>
-    <div class="bottomScreen"></div>
-</div>
+</div>    
+        
+                
+            
+            
 
-<!-- The Modal -->   
-<div id="modal" class="modal">
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="assets/javascript/logic.js"></script>
