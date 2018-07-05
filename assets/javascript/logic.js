@@ -12,6 +12,7 @@ $(".battleScreen").click(function(){
     $(".defeatScreen").hide();
 })
 
+// Logic to move the screen to the victory or defeat screen following click of the pokemon
 $(".marker").click(function(){
     var catchChance;
 
