@@ -2,30 +2,76 @@
 <html>
 
 <head>
-    <title>Pokemon Go</title>
+    <title>Pokemon No</title>
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.1.0/firebase.js"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 </head>
 
 <body>
-<!-- This one will be for the top screen -->
+        <body background='assets/images/town.png' class="bg"></body>
+<!-- background -->
 <div class='gameConsole'>
-    <img src='assets/images/DS.png' style="height:780px; width:780px;">
-    <div class="topScreen">
-        <div class="map"></div>
-        <div class="battleScreen">
-                <img src='assets/images/Battle.png'>
+    <img src='assets/images/DS.png'>
+    
+        <!-- Div for top screens -->
+        <div class="topScreen">
+            <!-- Div for the one displayed screen -->
+            <div class="topDisplay">
+                <div class="map"></div>
+                <!-- <div class="battleScreen"></div> -->
+            </div>
+        
+            <!-- Div for the three hidden screen -->
+            <div class="topHidden">
+                <div class="battleScreen"></div>
+                <div class="victoryScreen"></div>
+                <div class="defeatScreen"></div>
+            </div>
         </div>
-        <div class="victoryScreen"></div>
-        <div class="defeatScreen"></div>
-    </div>
-    <div class="bottomScreen">
-    </div>
+            
+        <div class="bottomScreen">
+                <div class="container">
+                    <!-- Jumbotron -->
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="jumbotron">
+                            <h3>Pokemon Tracker</3>
+                        </div>
+                    </div>
+                </div>
+            
+                    <div class="row">
+                    
+                    <div class="col-md-5">
+                        
+                        <!-- gamer stats-->
+                        <div class="card card-primary">
+                        
+                        <div class="card-body">
+                            <table class="table table-hover" id='playerStat'>
+                            <thead>
+                                <tr>
+                                <th># of Games</th>
+                                <th>Character</th>
+                                <th>Pokemon Name</th>
+                                <th>Status</th>
+                                <th># of Times Caught</th>  
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                            </table>
+                        </div>
+                        </div>
+                    </div>
+                    </div>  
+                </div>
+            </div>
 </div>
-
-<!-- The Modal -->   
-<div id="modal" class="modal">
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="assets/javascript/logic.js"></script>

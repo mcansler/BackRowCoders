@@ -1,31 +1,43 @@
-// When the user clicks the Pokemon, open the modal 
-marker.onclick = function() {
-    modal.style.display = "block";
-}
+$(".map").click(function(){
+    $(".map").hide();
+    $(".battleScreen").show();
+    $(".defeatScreen").hide();
+    $(".victoryScreen").hide();
+})
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+$(".battleScreen").click(function(){
+    $(".map").hide();
+    $(".battleScreen").hide();
+    $(".victoryScreen").show();
+    $(".defeatScreen").hide();
+})
+
+$(".marker").click(function(){
+    var catchChance;
+
+    if (catchChance === 0) {
+         $(".map").hide();
+         $(".battleScreen").hide();
+         $(".victoryScreen").hide();
+         $(".defeatScreen").show();
+    } else { 
+        $(".map").hide();
+        $(".battleScreen").hide();
+        $(".victoryScreen").show();
+        $(".defeatScreen").hide();
     }
-}
+})
 
-// Hide map
-$('.map').hide();
-// Show map
-$('.map').show();
+$(".victoryScreen").click(function(){
+    $(".map").hide();
+    $(".battleScreen").hide();
+    $(".victoryScreen").hide();
+    $(".defeatScreen").show();
+})
 
-// Hide Battle Screen
-$('.battleScreen').hide();
-// Show Battle Screen
-$('.battleScreen').show();
-
-// Hide Victory Screen
-$('.victoryScreen').hide();
-// Show Victory Screen
-$('.victoryScreen').show();
-
-// Hide Defeat Screen
-$('.defeatScreen').hide();
-// Show Defeat Screen
-$('.defeatScreen').show();
+$(".defeatScreen").click(function(){
+    $(".map").show();
+    $(".battleScreen").hide();
+    $(".victoryScreen").hide();
+    $(".defeatScreen").hide();
+})
