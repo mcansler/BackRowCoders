@@ -1,0 +1,81 @@
+/* Nintendo DS styling */
+.gameConsole {
+    position: fixed; 
+    top: -50%; 
+    left: -50%; 
+    width: 200%; 
+    height: 200%;
+}
+
+.gameConsole img {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    bottom: 0; 
+    margin: auto; 
+    min-width: 80%;
+    min-height: 80%;
+    z-index: -5; 
+}
+
+.topDisplay {
+    height: 800px;
+    width: 800px;
+}
+
+.topHidden {
+    display: none;
+}
+
+
+/* Will contain map */
+.map {
+    /* May conflict with logic code to toggle on and off display */
+    display: none;
+    /* Sit on top */
+    z-index: 4;
+    height: 200px;
+    width: 100%;
+    background-color: red; 
+}
+
+/* Will contain character and Pokemon and user will capture   */
+.battleScreen {
+    position: fixed;
+    top: -500px;
+    left: -310px;
+}
+.battleScreen img{
+    height: 300px;
+    width: 650px;
+    z-index: 3; 
+}
+
+
+
+/* Will contain victory gif */
+.victoryScreen {
+    position: fixed;
+    top: -500px;
+    left: -310px;
+}
+.victoryScreen img{
+    height: 300px;
+    width: 650px;
+    z-index: 2;
+}
+
+
+
+/* Will contain defeat gif */
+.defeatScreen {
+    position: fixed;
+    top: -500px;
+    left: -310px;
+}
+.defeatScreen img{
+    height: 300px;
+    width: 650px;
+    z-index: 1;
+}

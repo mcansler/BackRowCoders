@@ -1,47 +1,105 @@
-/* Background */
-body {
-    width: 100%;
-    height: 100%;
-    background: url(https://img00.deviantart.net/9d1b/i/2011/045/c/b/pokemon_town_by_neffertity-d39ks2h.jpg);
+.gameConsole img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+    z-index: -5;
+    height: 700px;
+    width: 700px;
 }
 
-/* Nintendo DS styling */
-.gameConsole{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        /* bring your own prefixes */
-        transform: translate(-50%, -50%);
-}
 
 /* Will contain map */
 .map {
-    /* May conflict with logic code to toggle on and off display */
-    display: none;
-    /* Sit on top */
-    z-index: 4; 
+    position: relative;
+    height: 276px;
+    width: 468px;
+    top: 9px;
+    left: -9px;
+    z-index: 4;
+    background-color: aqua; 
 }
 
 /* Will contain character and Pokemon and user will capture   */
 .battleScreen {
-    position: absolute;
-    height: 300px;
-    width: 300px;
-    /* z-index: 3;  */
-    margin-bottom: 200px;
-    background-image: url('https://orig00.deviantart.net/4319/f/2011/190/9/a/free_pokemon_battle_template_by_peregrinestar-d3lijek.png');
+    position: relative;
+    height: 276px;
+    width: 468px;
+    top: -267px;
+    left: -9px;
+    z-index: 3;
+    background-image: url(../images/Battle.png);
 }
 
 /* Will contain victory gif */
 .victoryScreen {
-    display: none;
-    /* Sit on top */
-    z-index: 2; 
+    position: relative;
+    height: 276px;
+    width: 468px;
+    top: -543px;
+    left: -9px;
+    z-index: 2;
+    background-image: url(../images/Victory.gif);
 }
 
 /* Will contain defeat gif */
 .defeatScreen {
-    display: none;
-    /* Sit on top */
-    z-index: 1; 
+    position: relative;
+    height: 276px;
+    width: 468px;
+    top: -819px;
+    left: -9px;
+    z-index: 1;
+    background-image: url(../images/Defeat.gif);
+}
+
+.bg {
+    /* Full height */
+    height: 100%;
+    
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.topScreen {
+    position: relative;
+    height: 285px;
+    width: 467px;
+    top: 61px;
+    left: 451px;
+    /* background-color: red; */
+}
+.topDisplay img{
+    position: relative;
+    height: 276px;
+    width: 467px;
+    top: 5px;
+    left: 0px;
+    /* background-color: aqua; */
+}
+.topHidden img{
+    position: relative;
+    height: 276px;
+    width: 467px;
+    top: 0px;
+    left: 225px;
+    /* background-color: red; */
+}
+
+
+.bottomScreen {
+    height: 191px;
+    width: 316px;
+    position: relative;
+    top: 166px;
+    left: 85px;
+    z-index: 10;
+}
+.jumbotron {
+    height: 10px;
+    text-align: center;
 }
