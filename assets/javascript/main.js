@@ -2,8 +2,8 @@
     function initMap(){
         // Map options
         var options = {
-            zoom: 16,
-            center:{lat:38.9247,lng:-77.0283}
+            zoom: 18,
+            center:{lat:38.8799,lng:-77.1067}
         }
         $(document).ready(function(){
         //console.log(options.zoom);
@@ -11,47 +11,8 @@
         var latitude;
         var longitude;
         var map = new google.maps.Map(document.getElementById('map'), options);
-        var pokemon = [
-            {
-                "name": "Bulbasaur",
-                "image": "assets/images/pokemon_small/Bulbasaur.png"
-            },
-            {
-                "name": "Ivysaur",
-                "image": "assets/images/pokemon_small/Ivysaur.png"
-            },
-            {
-                "name": "Venusaur",
-                "image": "assets/images/pokemon_small/Venusaur.png"
-            },
-            {
-                "name": "Charmander",
-                "image": "assets/images/pokemon_small/Charmander.png"
-            },
-            {
-                "name": "Charmeleon",
-                "image": "assets/images/pokemon_small/Charmeleon.png"
-            },
-            {
-                "name": "Charizard",
-                "image": "assets/images/pokemon_small/Charizard.png"
-            },
-            {
-                "name": "Squirtle",
-                "image": "assets/images/pokemon_small/Squirtle.png"
-            },
-            {
-                "name": "Wartortle",
-                "image": "assets/images/pokemon_small/Wartortle.png"
-            },
-            {
-                "name": "Blastoise",
-                "image": "assets/images/pokemon_small/Blastoise.png"
-            },
-            {
-                "name": "Caterpie",
-                "image": "assets/images/pokemon_small/Caterpie.png"
-            }];
+        var pokemon = {};
+            
         //var coords = {};
                 
         // Get the modal
@@ -61,19 +22,19 @@
         //var span = document.getElementsByClassName("close")[0];
                 
         //Load pokemon.json file contents
-        // var xhttp = new XMLHttpRequest();
-        // xhttp.onreadystatechange = function(){
-        //     if(this.readyState == 4 && this.status == 200){
-        //         var response = JSON.parse(xhttp.responseText);
-        //         var item = response;
-        //         pokemon = item;
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                var response = JSON.parse(xhttp.responseText);
+                var item = response;
+                pokemon = item;
                                 
-        //     }
+            }
             
-        // };
+        };
         
-        // xhttp.open("GET", "pokemon.json", false);
-        // xhttp.send();
+        xhttp.open("GET", "pokemon.json", false);
+        xhttp.send();
         
        //Load worldCities.json file contents 
         // var xhttp = new XMLHttpRequest();
@@ -106,8 +67,9 @@
             console.log(mylat);
             console.log(mylng);
             var yesNo = Math.floor((Math.random() * 2));
-            var pokemonNum = Math.floor((Math.random() * 35));
+            var pokemonNum = Math.floor((Math.random() * 10));
             console.log(yesNo);
+            console.log(pokemon[pokemonNum].name);
             if(yesNo){
                 addMarker(mylat, mylng, pokemonNum);
             }
@@ -136,7 +98,7 @@
         google.maps.event.addListener(map, 'zoom_changed', function(event) {
             var zoom = map.getZoom();
             console.log(zoom);
-            if (zoom >= 1){
+            if (zoom >= 17){
                 marker.setVisible(true);
                 marker.setAnimation(google.maps.Animation.BOUNCE);
             } else {
@@ -148,18 +110,37 @@
         google.maps.event.addListener(marker, 'click', (function(marker) {
                 return function() {
                 /*Battle Screen Pop Up Open Code*/
-                $("#pokemonName").html("<h3>"+ name +"</h3>");
+                $("#pokemonName").html("<h2>"+ name +"</h2>");
                 $("#pokemonImage").attr("src",pokemon[num].image);
                 $("#pokeBall").attr("src","assets/images/pokeball.png");
                 $("#battleScreen").css('visibility', 'visible');
-                // $("#pokeBall").click(function(){
-                //     var winLose = Math.floor((Math.random() * 2));
-                //     if(winLose){
-
-                //     }
-                // });
+                $("#pokeBall").click(function(){
+                    var winLose = Math.floor((Math.random() * 2));
+                    console.log(winLose);
+                    if(winLose){
+                        $("#battleScreen").css('visibility', 'hidden');
+                        $("#victoryScreen").css('visibility', 'visible');
+                        var pokeImg = pokemon[num].image;
+                        var pokeName = pokemon[num].name;
+                        $("#playerStat").append(
+                        "<tr><td> pokeImg </td><td> pokeName </td><td> Caught </td><td> </td> 1 </tr>");
+                        setTimeout(function(){ 
+                        $("#victoryScreen").css('visibility', 'hidden'); }, 2500);
+                        marker.setMap(null);
+                    }
+                    else {
+                        $("#battleScreen").css('visibility', 'hidden');
+                        $("#defeatScreen").css('visibility', 'visible');
+                        $("#playerStat").append(
+                        "<tr><td> pokeImg </td><td> pokeName </td><td> Encountered </td><td> </td></tr>");
+                        setTimeout(function(){ 
+                        $("#defeatScreen").css('visibility', 'hidden'); }, 2500);
+                        marker.setMap(null);
+                    }
+                    });
+                 
                 }
-            })(marker));
+        })(marker));
 
         // Check for customicon
         if(pokemon[num].image){
