@@ -79,7 +79,7 @@
             console.log(mylat);
             console.log(mylng);
             var yesNo = Math.floor((Math.random() * 2));
-            var pokemonNum = Math.floor((Math.random() * 10));
+            var pokemonNum = Math.floor((Math.random() * 35));
             console.log(yesNo);
             console.log(pokemon[pokemonNum].name);
             if(yesNo){
